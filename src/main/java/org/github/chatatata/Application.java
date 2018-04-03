@@ -1,5 +1,6 @@
 package org.github.chatatata;
 
+import org.github.chatatata.telephony.di.component.DaggerSpeakerComponent;
 import org.github.chatatata.telephony.di.qualifier.Licky;
 import org.github.chatatata.telephony.Speaker;
 
@@ -21,10 +22,12 @@ public class Application {
         new Application().run();
     }
 
-    public void run() {
+    public Application() {
         //  Inject the dudes.
         DaggerSpeakerComponent.create().inject(this);
+    }
 
+    public void run() {
         try {
             System.out.println("Watch out for the speaker:");
             speaker.speak();
@@ -34,5 +37,13 @@ public class Application {
         } catch (IOException e) {
             throw new InternalError("The speaker could not speak.", e);
         }
+    }
+
+    public Speaker getSpeaker() {
+        return speaker;
+    }
+
+    public Speaker getLickySpeaker() {
+        return lickySpeaker;
     }
 }

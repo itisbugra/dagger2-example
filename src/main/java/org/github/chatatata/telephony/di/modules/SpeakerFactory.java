@@ -29,7 +29,7 @@ import org.github.chatatata.telephony.phone.RegularPhone;
 import org.github.chatatata.telephony.Speaker;
 
 /**
- *
+ * A factory class providing concrete instances for the components.
  */
 @Module
 public class SpeakerFactory {
